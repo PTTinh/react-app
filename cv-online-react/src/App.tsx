@@ -1,33 +1,60 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import '../public/scss/style.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+/* import all the icons in Free Solid, Free Regular, and Brands styles */
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
+library.add(fas, far, fab)
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showMore, setShowMore] = useState(false);
+
+  function toggleShowMore() {
+    setShowMore(!showMore);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <nav>
+        <ul className="nav">
+          <li className="nav-item">
+            <a href="#personal-info" className="nav-item-text">
+              <FontAwesomeIcon className='icon' icon={['fas', 'user']} />
+              <span>Thông tin</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#skills" className="nav-item-text ">
+              <FontAwesomeIcon className='icon' icon={['fas', 'meteor']} />
+              <span>Kỹ năng</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#projects" className="nav-item-text ">
+              <FontAwesomeIcon className='icon' icon={['fas', 'list-check']} />
+              <span>Dự án</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-item-text" onClick={toggleShowMore}>
+              <FontAwesomeIcon className='icon' icon={['fas', 'bars']} />
+              <span>Xem thêm</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <main id="main">
+
+      </main>
+      {showMore && (<div className="show-more" >
+        <ul className="sm-container">
+          <li><a href="#">Tải CV (EN)</a></li>
+          <li><a href="#">Tải CV (VI)</a></li>
+        </ul>
+      </div>)}
     </>
   )
 }

@@ -35,7 +35,7 @@ nav {
             transition: all 0.3s;
 
             // thẻ i trong thẻ a (icon)
-            i {
+            .icon {
                 font-size: 30px;
             }
 
@@ -75,7 +75,7 @@ nav {
 }
 
 .show-more {
-    display: none;
+    display: block;
     position: fixed;
     bottom: 85px;
     right: 10px;
@@ -94,8 +94,5 @@ nav {
             text-decoration: none;
             border-bottom: 1px dotted rgb(191, 191, 191);
         }
-    }
-    &.active {
-        display: block;
     }
 }
